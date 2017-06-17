@@ -41,23 +41,29 @@ angular.module('SML_app').factory('albumsFactory', function() {
 		{
 			id: '7',
 			albumTitle: 'Album 7',
-			albumArtist: 'Artist Artist'
+			albumArtist: 'Artist Artist',
+			logoUrl: 'https://s-media-cache-ak0.pinimg.com/originals/b1/aa/5b/b1aa5b517fa2cd9de90b907765e2e332.jpg'
 		},
 		{
 			id: '8',
 			albumTitle: 'Album 8',
-			albumArtist: 'Artist Artist',
-			logoUrl: 'http://www.designformusic.com/wp-content/uploads/2016/01/perfectly-chilled-album-cover-artwork-design-500x500.jpg'
+			albumArtist: 'Artist Artist'
 		},
 		{
 			id: '9',
 			albumTitle: 'Album 9',
 			albumArtist: 'Artist Artist',
-			logoUrl: 'http://www.designformusic.com/wp-content/uploads/2015/10/insurgency-digital-album-cover-design.jpg'
+			logoUrl: 'http://www.designformusic.com/wp-content/uploads/2016/01/perfectly-chilled-album-cover-artwork-design-500x500.jpg'
 		},
 		{
 			id: '10',
 			albumTitle: 'Album 10',
+			albumArtist: 'Artist Artist',
+			logoUrl: 'http://www.designformusic.com/wp-content/uploads/2015/10/insurgency-digital-album-cover-design.jpg'
+		},
+		{
+			id: '11',
+			albumTitle: 'Album 11',
 			albumArtist: 'Artist Artist',
 			logoUrl: 'http://illusion.scene360.com/wp-content/uploads/2014/10/computergraphics-album-covers-2014-05.jpg'
 		}
