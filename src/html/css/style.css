@@ -1,3 +1,43 @@
 body {
-	
+	position: relative;
+	z-index: 1;	
+	min-height: 100vh;
+}
+
+header, footer {
+	position: absolute;
+	z-index: 2;
+	left: 0;
+	height: 100px;
+	width: 100%;
+	background-color: lightblue;
+}
+header {
+	top: 0;
+}
+footer {
+	bottom: 0;
+}
+
+main {
+	padding: 120px 0;
+}
+
+.album {
+	padding: 10px;
+}
+
+.album-wrap {
+	padding: 10px;
+	background-color: #eee;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+}
+
+
+
+
+
+[ng:\cloak], [ng-cloak], [data-ng-cloak], .ng-cloak {
+	display: none;
 }
