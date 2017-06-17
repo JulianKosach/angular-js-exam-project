@@ -85,25 +85,68 @@
 
 
 	<!-- START MODAL -->
-	<div id="add-album-modal" class="modal fade" tabindex="-1" role="dialog">
+	<div id="add-album-modal" class="modal fade" tabindex="-1" role="dialog" data-ng-controller="albumEditorCtrl as albumEditorCtrl">
 	 	<div class="modal-dialog big-modal" role="document">
 		<div class="modal-content">
 		  	<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Add new album</h4>
+				<h3 class="modal-title">Add new album</h3>
 		  	</div>
 		  	<div class="modal-body">
-				<form class="navbar-form navbar-left">
+				<form>
 					<div class="form-group">
-						<label for="add-title">Album title</label>
-						<input id="add-title" type="text" class="form-control" placeholder="Album title">
+						<label for="add-album-title">Album title</label>
+						<input id="add-album-title" type="text" class="form-control" placeholder="Enter album title here">
 						<hr>
+					</div>
+					<div class="form-group">
+						<label for="add-album-artist">Artist</label>
+						<input id="add-album-artist" type="text" class="form-control" placeholder="Enter artist here">
+						<hr>
+					</div>
+
+					<div class="row">
+
+						<div class="col-lg-8 col-md-6">
+							<div class="form-group">
+								<label for="add-album-country">Country</label>
+								<input id="add-album-country" type="text" class="form-control" placeholder="Enter country here">
+								<hr>
+							</div>
+							<div class="form-group">
+								<label for="add-album-company">Company</label>
+								<input id="add-album-company" type="text" class="form-control" placeholder="Enter company here">
+								<hr>
+							</div>
+							<div class="form-group">
+								<label for="add-album-year">Year</label>
+								<input id="add-album-year" type="text" class="form-control" placeholder="Enter year here">
+								<hr>
+							</div>
+							<div class="form-group">
+								<label for="add-album-price">Price</label>
+								<input id="add-album-price" type="text" class="form-control" placeholder="Enter price here">
+								<hr>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="album-logo-preview">
+								<div class="album-logo-show" style="background-image: url({{logoUrl}})"></div>
+							</div>
+							<div class="form-group">
+								<label for="add-album-logo">Album logo (URL)</label>
+								<input id="add-album-logo" type="text" class="form-control" placeholder="Enter album logo URL here" data-ng-model="logoUrl">
+								<hr>
+							</div>
+						</div>
+
 					</div>
 				</form>
 		  	</div>
 		  	<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Add album</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Add album</button>
 		  	</div>
 			</div><!-- /.modal-content -->
 	  	</div><!-- /.modal-dialog -->
@@ -115,14 +158,63 @@
 		<div class="modal-content">
 		  	<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Edit album</h4>
+				<h3 class="modal-title">Edit album</h3>
 		  	</div>
 		  	<div class="modal-body">
-				<p>One fine body&hellip;</p>
+				<form>
+					<div class="form-group">
+						<label for="edit-album-title">Album title</label>
+						<input id="edit-album-title" type="text" class="form-control" placeholder="Enter album title here">
+						<hr>
+					</div>
+					<div class="form-group">
+						<label for="edit-album-artist">Artist</label>
+						<input id="edit-album-artist" type="text" class="form-control" placeholder="Enter artist here">
+						<hr>
+					</div>
+
+					<div class="row">
+
+						<div class="col-lg-8 col-md-6">
+							<div class="form-group">
+								<label for="edit-album-country">Country</label>
+								<input id="edit-album-country" type="text" class="form-control" placeholder="Enter country here">
+								<hr>
+							</div>
+							<div class="form-group">
+								<label for="edit-album-company">Company</label>
+								<input id="edit-album-company" type="text" class="form-control" placeholder="Enter company here">
+								<hr>
+							</div>
+							<div class="form-group">
+								<label for="edit-album-year">Year</label>
+								<input id="edit-album-year" type="text" class="form-control" placeholder="Enter year here">
+								<hr>
+							</div>
+							<div class="form-group">
+								<label for="edit-album-price">Price</label>
+								<input id="edit-album-price" type="text" class="form-control" placeholder="Enter price here">
+								<hr>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="album-logo-preview">
+								<div class="album-logo-show" style="background-image: url()"></div>
+							</div>
+							<div class="form-group">
+								<label for="edit-album-logo">Album logo (URL)</label>
+								<input id="edit-album-logo" type="text" class="form-control" placeholder="Enter album logo URL here">
+								<hr>
+							</div>
+						</div>
+
+					</div>
+				</form>
 		  	</div>
 		  	<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
 		  	</div>
 			</div><!-- /.modal-content -->
 	  	</div><!-- /.modal-dialog -->
@@ -134,10 +226,10 @@
 		<div class="modal-content">
 		  	<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Are You really want to delete this album?</h4>
+				<h3 class="modal-title">Are You really want to delete this album?</h3>
 		  	</div>
 		  	<div class="modal-footer">
-				<button type="button" class="btn btn-primary">Delete</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 		  	</div>
 			</div><!-- /.modal-content -->
@@ -146,15 +238,54 @@
 
 
 	<div id="info-album-modal" class="modal fade" tabindex="2" role="dialog">
-	 	<div class="modal-dialog" role="document">
+	 	<div class="modal-dialog big-modal" role="document">
 		<div class="modal-content">
 		  	<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Info</h4>
+				<h3 class="modal-title"> </h3>
+		  	</div>
+		  	<div class="modal-body">
+				<form>
+					<div class="row">
+
+						<div class="col-lg-8 col-md-6">
+							<div class="form-group">
+								<p>Album title</p>
+								<h4>Album 1</h4>
+							</div>
+							<div class="form-group">
+								<p>Artist</p>
+								<h4> </h4>
+							</div>
+							<div class="form-group">
+								<p>Country</p>
+								<h4> </h4>
+							</div>
+							<div class="form-group">
+								<p>Company</p>
+								<h4> </h4>
+							</div>
+							<div class="form-group">
+								<p>Year</p>
+								<h4> </h4>
+							</div>
+							<div class="form-group">
+								<p>Price</p>
+								<h4> </h4>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="album-logo-preview">
+								<div class="album-logo-show" style="background-image: url()"></div>
+							</div>
+						</div>
+
+					</div>
+				</form>
 		  	</div>
 		  	<div class="modal-footer">
-				<button type="button" class="btn btn-primary">Delete</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		  	</div>
 			</div><!-- /.modal-content -->
 	  	</div><!-- /.modal-dialog -->
@@ -178,5 +309,6 @@
 	<script src="js/SML_app.js"></script>
 	<script src="js/factories/albumsFactory.js"></script>
 	<script src="js/controllers/albumsCtrl.js"></script>
+	<script src="js/controllers/albumEditorCtrl.js"></script>
 </body>
 </html>
