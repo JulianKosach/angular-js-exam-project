@@ -1,26 +1,21 @@
-var albumsFactory = angular.module('SML_app').factory('albumsFactory', function($http) {
+angular.module('SML_app').factory('albumsFactory', function($http) {
 	console.log('albumsFactory');
 	var service = {};
 
-	var albums = [
-		{
-			title: 'Album 1',
-			artist: 'Artist Artist'
-		}
-	];
+	var albums = [];
 	var albumsCount = 0;
-
-	// var url = '../albums/all';
-	// $http.get('../albums/all')
- //        .success(function (result) {
- //            console.log('success', result);
- //        })
- //        .error(function (result) {
- //            console.log('error');
- //        })
 
 	service.getAlbumsCount = function(){
 		return albumsCount;
+	};
+
+	service.setAlbums = function(arr){
+	 	albums = arr;
+	    console.log(albums.length);
+	};
+
+	service.addAlbum = function(obj){
+	 	albums.push(obj);
 	};
 
 	service.getAlbums = function(){

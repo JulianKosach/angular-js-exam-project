@@ -19,7 +19,7 @@
 
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body data-ng-cloak>
+<body>
 
 	<header>
 		<div class="container">
@@ -44,7 +44,7 @@
 			<section id="albums-container" class="albums-container" data-ng-controller="albumsCtrl as albumsCtrl">
 				<div class="row">
 					
-					<section class="album col-lg-3 col-md-4 col-sm-6 col-xs-12" data-ng-repeat="album in albumsCtrl.albums" data-ng-controller="albumCtrl as albumCtrl">
+					<section data-ng-cloak class="album col-lg-3 col-md-4 col-sm-6 col-xs-12" data-ng-repeat="album in albumsCtrl.albums" data-ng-controller="albumCtrl as albumCtrl">
 						<div class="album-wrap open-modal" data-modal="#info-album-modal" onclick="openModal(event, this)">
 							<div class="album-cover" style="background-image: url({{album.logoUrl}})"></div>
 							<div class="album-ctrl-btns">
@@ -96,12 +96,12 @@
 				<form>
 					<div class="form-group">
 						<label for="add-album-title">Album title</label>
-						<input id="add-album-title" type="text" class="form-control" placeholder="Enter album title here">
+						<input id="add-album-title" type="text" class="form-control" placeholder="Enter album title here" data-ng-model="albumEditorCtrl.title">
 						<hr>
 					</div>
 					<div class="form-group">
 						<label for="add-album-artist">Artist</label>
-						<input id="add-album-artist" type="text" class="form-control" placeholder="Enter artist here">
+						<input id="add-album-artist" type="text" class="form-control" placeholder="Enter artist here" data-ng-model="albumEditorCtrl.artist">
 						<hr>
 					</div>
 
@@ -110,33 +110,33 @@
 						<div class="col-lg-8 col-md-6">
 							<div class="form-group">
 								<label for="add-album-country">Country</label>
-								<input id="add-album-country" type="text" class="form-control" placeholder="Enter country here">
+								<input id="add-album-country" type="text" class="form-control" placeholder="Enter country here" data-ng-model="albumEditorCtrl.country">
 								<hr>
 							</div>
 							<div class="form-group">
 								<label for="add-album-company">Company</label>
-								<input id="add-album-company" type="text" class="form-control" placeholder="Enter company here">
+								<input id="add-album-company" type="text" class="form-control" placeholder="Enter company here" data-ng-model="albumEditorCtrl.company">
 								<hr>
 							</div>
 							<div class="form-group">
 								<label for="add-album-year">Year</label>
-								<input id="add-album-year" type="text" class="form-control" placeholder="Enter year here">
+								<input id="add-album-year" type="text" class="form-control" placeholder="Enter year here" data-ng-model="albumEditorCtrl.year">
 								<hr>
 							</div>
 							<div class="form-group">
 								<label for="add-album-price">Price</label>
-								<input id="add-album-price" type="text" class="form-control" placeholder="Enter price here">
+								<input id="add-album-price" type="text" class="form-control" placeholder="Enter price here" data-ng-model="albumEditorCtrl.price">
 								<hr>
 							</div>
 						</div>
 
 						<div class="col-lg-4 col-md-6">
 							<div class="album-logo-preview">
-								<div class="album-logo-show" style="background-image: url({{logoUrl}})"></div>
+								<div class="album-logo-show" data-ng-if="logoUrl != ''" style="background-image: url({{albumEditorCtrl.logoUrl}})"></div>
 							</div>
 							<div class="form-group">
 								<label for="add-album-logo">Album logo (URL)</label>
-								<input id="add-album-logo" type="text" class="form-control" placeholder="Enter album logo URL here" data-ng-model="logoUrl">
+								<input id="add-album-logo" type="text" class="form-control" placeholder="Enter album logo URL here" data-ng-model="albumEditorCtrl.logoUrl">
 								<hr>
 							</div>
 						</div>
@@ -145,8 +145,8 @@
 				</form>
 		  	</div>
 		  	<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal">Add album</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="albumEditorCtrl.removeValues()">Close</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="albumEditorCtrl.addNewAlbum()">Add album</button>
 		  	</div>
 			</div><!-- /.modal-content -->
 	  	</div><!-- /.modal-dialog -->
@@ -319,7 +319,5 @@
 	<script src="js/controllers/albumsCtrl.js"></script>
 	<script src="js/controllers/albumCtrl.js"></script>
 	<script src="js/controllers/albumEditorCtrl.js"></script>
-	
-	<script src="js/request.js"></script>
 </body>
 </html>
