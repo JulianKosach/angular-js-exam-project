@@ -17,7 +17,8 @@
 	<![endif]-->
 	<!-- END Bootstrap -->
 
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="css/app.animation.css">
 </head>
 <body>
 
@@ -25,7 +26,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-7 col-sm-12">
-					<button class="btn navbar-left btn-primary btn-add open-modal" data-modal="#add-album-modal">Add new album &nbsp; <span class="glyphicon glyphicon-cd"></span></button>
+					<button class="btn navbar-left btn-primary btn-add">Add new album &nbsp; <span class="glyphicon glyphicon-cd"></span></button>
 					<form class="navbar-form navbar-left">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Search">
@@ -41,38 +42,9 @@
 
 	<main>
 		<div class="container">
-			<section id="albums-container" class="albums-container" data-ng-controller="albumsCtrl as albumsCtrl">
-				<div class="row">
-					
-					<section data-ng-cloak class="album col-lg-3 col-md-4 col-sm-6 col-xs-12" data-ng-repeat="album in albumsCtrl.albums" data-ng-controller="albumCtrl as albumCtrl">
-						<div class="album-wrap open-modal" data-modal="#info-album-modal" onclick="openModal(event, this)">
-							<div class="album-cover" style="background-image: url({{album.logoUrl}})"></div>
-							<div class="album-ctrl-btns">
-								<button class="btn delete-btn open-modal" data-modal="#delete-album-modal" title="delete album" onclick="openModal(event, this)">
-									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-								</button>
-								<button class="btn edit-btn open-modal" data-modal="#edit-album-modal" title="edit album" onclick="openModal(event, this)">
-									<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-								</button>
-							</div>
-							<div class="album-info">
-								<h3>{{album.title}}</h3>
-								<h4>{{album.artist}}</h4>
-							</div>
-						</div>
-					</section>
-
-					<section class="album col-lg-3 col-md-4 col-sm-6 col-xs-12">
-						<div class="album-wrap add-album open-modal" data-modal="#add-album-modal">
-							<div class="album-cover" style="background-image: url(img/plus.png)"></div>
-							<div class="album-info">
-								<h3>Add new album</h3>
-							</div>
-						</div>
-					</section>
-
-				</div>
-			</section>
+			<div class="view-container">
+		    	<div ng-view class="view-frame"></div>
+		    </div>
 		</div>
 	</main>
 
@@ -84,222 +56,6 @@
 	</footer>
 
 
-	<!-- START MODAL -->
-	<div id="add-album-modal" class="modal fade" tabindex="-1" role="dialog" data-ng-controller="albumEditorCtrl as albumEditorCtrl">
-	 	<div class="modal-dialog big-modal" role="document">
-		<div class="modal-content">
-		  	<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h3 class="modal-title">Add new album</h3>
-		  	</div>
-		  	<div class="modal-body">
-				<form>
-					<div class="form-group">
-						<label for="add-album-title">Album title</label>
-						<input id="add-album-title" type="text" class="form-control" placeholder="Enter album title here" data-ng-model="albumEditorCtrl.title">
-						<hr>
-					</div>
-					<div class="form-group">
-						<label for="add-album-artist">Artist</label>
-						<input id="add-album-artist" type="text" class="form-control" placeholder="Enter artist here" data-ng-model="albumEditorCtrl.artist">
-						<hr>
-					</div>
-
-					<div class="row">
-
-						<div class="col-lg-8 col-md-6">
-							<div class="form-group">
-								<label for="add-album-country">Country</label>
-								<input id="add-album-country" type="text" class="form-control" placeholder="Enter country here" data-ng-model="albumEditorCtrl.country">
-								<hr>
-							</div>
-							<div class="form-group">
-								<label for="add-album-company">Company</label>
-								<input id="add-album-company" type="text" class="form-control" placeholder="Enter company here" data-ng-model="albumEditorCtrl.company">
-								<hr>
-							</div>
-							<div class="form-group">
-								<label for="add-album-year">Year</label>
-								<input id="add-album-year" type="text" class="form-control" placeholder="Enter year here" data-ng-model="albumEditorCtrl.year">
-								<hr>
-							</div>
-							<div class="form-group">
-								<label for="add-album-price">Price</label>
-								<input id="add-album-price" type="text" class="form-control" placeholder="Enter price here" data-ng-model="albumEditorCtrl.price">
-								<hr>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6">
-							<div class="album-logo-preview">
-								<div class="album-logo-show" data-ng-if="logoUrl != ''" style="background-image: url({{albumEditorCtrl.logoUrl}})"></div>
-							</div>
-							<div class="form-group">
-								<label for="add-album-logo">Album logo (URL)</label>
-								<input id="add-album-logo" type="text" class="form-control" placeholder="Enter album logo URL here" data-ng-model="albumEditorCtrl.logoUrl">
-								<hr>
-							</div>
-						</div>
-
-					</div>
-				</form>
-		  	</div>
-		  	<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="albumEditorCtrl.removeValues()">Close</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="albumEditorCtrl.addNewAlbum()">Add album</button>
-		  	</div>
-			</div><!-- /.modal-content -->
-	  	</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
-
-
-	<div id="edit-album-modal" class="modal fade" tabindex="-1" role="dialog">
-	 	<div class="modal-dialog big-modal" role="document">
-		<div class="modal-content">
-		  	<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h3 class="modal-title">Edit album</h3>
-		  	</div>
-		  	<div class="modal-body">
-				<form>
-					<div class="form-group">
-						<label for="edit-album-title">Album title</label>
-						<input id="edit-album-title" type="text" class="form-control" placeholder="Enter album title here">
-						<hr>
-					</div>
-					<div class="form-group">
-						<label for="edit-album-artist">Artist</label>
-						<input id="edit-album-artist" type="text" class="form-control" placeholder="Enter artist here">
-						<hr>
-					</div>
-
-					<div class="row">
-
-						<div class="col-lg-8 col-md-6">
-							<div class="form-group">
-								<label for="edit-album-country">Country</label>
-								<input id="edit-album-country" type="text" class="form-control" placeholder="Enter country here">
-								<hr>
-							</div>
-							<div class="form-group">
-								<label for="edit-album-company">Company</label>
-								<input id="edit-album-company" type="text" class="form-control" placeholder="Enter company here">
-								<hr>
-							</div>
-							<div class="form-group">
-								<label for="edit-album-year">Year</label>
-								<input id="edit-album-year" type="text" class="form-control" placeholder="Enter year here">
-								<hr>
-							</div>
-							<div class="form-group">
-								<label for="edit-album-price">Price</label>
-								<input id="edit-album-price" type="text" class="form-control" placeholder="Enter price here">
-								<hr>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6">
-							<div class="album-logo-preview">
-								<div class="album-logo-show" style="background-image: url()"></div>
-							</div>
-							<div class="form-group">
-								<label for="edit-album-logo">Album logo (URL)</label>
-								<input id="edit-album-logo" type="text" class="form-control" placeholder="Enter album logo URL here">
-								<hr>
-							</div>
-						</div>
-
-					</div>
-				</form>
-		  	</div>
-		  	<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-		  	</div>
-			</div><!-- /.modal-content -->
-	  	</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
-
-
-	<div id="delete-album-modal" class="modal fade" tabindex="1" role="dialog">
-	 	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-		  	<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h3 class="modal-title">Are You really want to delete this album?</h3>
-		  	</div>
-		  	<div class="modal-footer">
-				<button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-		  	</div>
-			</div><!-- /.modal-content -->
-	  	</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
-
-
-	<div id="info-album-modal" class="modal fade" tabindex="2" role="dialog">
-	 	<div class="modal-dialog big-modal" role="document">
-		<div class="modal-content">
-		  	<div class="modal-header">
-				<button class="btn btn-primary edit-btn open-modal" data-dismiss="modal" data-modal="#edit-album-modal" title="edit album" onclick="openModal(event, this)">
-					Edit album &nbsp; <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-				</button>
-				<button class="btn btn-primary delete-btn open-modal" data-dismiss="modal" data-modal="#delete-album-modal" title="delete album" onclick="openModal(event, this)">
-					Delete album &nbsp; <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-				</button>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h3 class="modal-title"> </h3>
-		  	</div>
-		  	<div class="modal-body">
-				<form>
-					<div class="row">
-
-						<div class="col-lg-8 col-md-6">
-							<div class="form-group">
-								<p>Album title</p>
-								<h4>Album 1</h4>
-							</div>
-							<div class="form-group">
-								<p>Artist</p>
-								<h4> </h4>
-							</div>
-							<div class="form-group">
-								<p>Country</p>
-								<h4> </h4>
-							</div>
-							<div class="form-group">
-								<p>Company</p>
-								<h4> </h4>
-							</div>
-							<div class="form-group">
-								<p>Year</p>
-								<h4> </h4>
-							</div>
-							<div class="form-group">
-								<p>Price</p>
-								<h4> </h4>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6">
-							<div class="album-logo-preview">
-								<div class="album-logo-show" style="background-image: url()"></div>
-							</div>
-						</div>
-
-					</div>
-				</form>
-		  	</div>
-		  	<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		  	</div>
-			</div><!-- /.modal-content -->
-	  	</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
-	<!-- END MODAL -->
-
-
-	<script src="js/libs/underscore-min.js"></script>
 
 	<!-- START Bootstrap -->
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -308,16 +64,31 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!-- END Bootstrap -->
 
-	<script src="js/for_bootstrap.js"></script>
+	<script src="libs/underscore-min.js"></script>
 
 	<!-- START AngularJS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
 	<!-- END AngularJS -->
 
-	<script src="js/SML_app.js"></script>
-	<script src="js/factories/albumsFactory.js"></script>
-	<script src="js/controllers/albumsCtrl.js"></script>
-	<script src="js/controllers/albumCtrl.js"></script>
-	<script src="js/controllers/albumEditorCtrl.js"></script>
+	<script src="js/app.module.js"></script>
+	<script src="js/app.config.js"></script>
+    <script src="js/app.animation.js"></script>
+
+    <script src="js/core/core.module.js"></script>
+    <script src="js/core/checkmark/checkmark.filter.js"></script>
+
+    <script src="js/core/album/album.module.js"></script>
+    <script src="js/core/album/album.service.js"></script>
+
+    <script src="js/albums-list/albums-list.module.js"></script>
+    <script src="js/albums-list/albums-list.component.js"></script>
+
+    <script src="js/album-detail/album-detail.module.js"></script>
+    <script src="js/album-detail/album-detail.component.js"></script>
+
+
 </body>
 </html>
