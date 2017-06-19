@@ -2,7 +2,7 @@
 	<ul class="row">
 					
 		<li data-ng-cloak class="album col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="album in $ctrl.albums">
-			<div class="album-wrap">
+			<a href="#!/albums/{{album.id}}" class="album-wrap">
 				<div class="album-cover" style="background-image: url({{album.logoUrl}})"></div>
 				<div class="album-ctrl-btns">
 					<button class="btn delete-btn" title="delete album">
@@ -16,16 +16,16 @@
 					<h3>{{album.title}}</h3>
 					<h4>{{album.artist}}</h4>
 				</div>
-			</div>
+			</a>
 		</li>
 
 		<li class="album col-lg-3 col-md-4 col-sm-6 col-xs-12">
-				<div class="album-wrap add-album">
+				<a href="#!/albums/add"  class="album-wrap add-album">
 					<div class="album-cover" style="background-image: url(img/plus.png)"></div>
 					<div class="album-info">
 						<h3>Add new album</h3>
 					</div>
-				</div>
+				</a>
 		</li>
 
 	</ul>

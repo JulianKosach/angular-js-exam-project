@@ -5,7 +5,7 @@ angular.
   factory('Albums', ['$resource',
     function($resource) {
       return $resource('/albums/all', {}, {
-        query: {
+        get: {
           method: 'GET',
           isArray: true,
           transformResponse: function(data) {
@@ -17,6 +17,7 @@ angular.
             return arr;
           }
         }
+        
       });
     }
   ]);

@@ -1,29 +1,23 @@
-/* Animate `ngRepeat` in `phoneList` component */
-.album-list-item.ng-enter,
-.album-list-item.ng-leave,
-.album-list-item.ng-move {
+/* Animate `ngRepeat` in `albumList` component */
+.album.ng-enter,
+.album.ng-leave,
+.album.ng-move {
   overflow: hidden;
-  transition: 0.5s linear all;
+  transition: all 0.5s;
 }
 
-.album-list-item.ng-enter,
-.album-list-item.ng-leave.ng-leave-active,
-.album-list-item.ng-move {
+.album.ng-enter,
+.album.ng-leave.ng-leave-active,
+.album.ng-move {
   height: 0;
-  margin-bottom: 0;
   opacity: 0;
-  padding-bottom: 0;
-  padding-top: 0;
 }
 
-.album-list-item.ng-enter.ng-enter-active,
-.album-list-item.ng-leave,
-.album-list-item.ng-move.ng-move-active {
-  height: 120px;
-  margin-bottom: 20px;
+.album.ng-enter.ng-enter-active,
+.album.ng-leave,
+.album.ng-move.ng-move-active {
+  height: 290px;
   opacity: 1;
-  padding-bottom: 4px;
-  padding-top: 15px;
 }
 
 /* Animate view transitions with `ngView` */
@@ -31,13 +25,8 @@
   position: relative;
 }
 
-.view-frame {
-  margin-top: 20px;
-}
-
 .view-frame.ng-enter,
 .view-frame.ng-leave {
-  background: white;
   left: 0;
   position: absolute;
   right: 0;

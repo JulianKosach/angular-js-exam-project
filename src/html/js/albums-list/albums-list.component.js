@@ -8,7 +8,7 @@ angular.
     controller: ['Albums',
       function PhoneListController(Albums) {
 
-        this.albums = Albums.query();
+        this.albums = Albums.get();
         // this.orderProp = 'age';
       }
     ]
