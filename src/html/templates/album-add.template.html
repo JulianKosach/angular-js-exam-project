@@ -1,0 +1,51 @@
+<div class="row album-add">
+	<a href="#!/albums" class="back-nav-btn"><span class="glyphicon glyphicon-arrow-left"></span></a>
+
+	<div class="col-lg-12 col-md-12">
+		<div class="form-group">
+			<label for="add-album-title">Album title</label>
+			<input id="add-album-title" type="text" class="form-control" placeholder="Enter album title here" data-ng-model="$ctrl.title">
+			<hr>
+		</div>
+		<div class="form-group">
+			<label for="add-album-artist">Artist</label>
+			<input id="add-album-artist" type="text" class="form-control" placeholder="Enter artist here" data-ng-model="$ctrl.artist">
+			<hr>
+		</div>
+	</div>
+
+		<div class="col-lg-8 col-md-6">
+			<div class="form-group">
+				<label for="add-album-country">Country</label>
+				<input id="add-album-country" type="text" class="form-control" placeholder="Enter country here" data-ng-model="$ctrl.country">
+				<hr>
+			</div>
+			<div class="form-group">
+				<label for="add-album-company">Company</label>
+				<input id="add-album-company" type="text" class="form-control" placeholder="Enter company here" data-ng-model="$ctrl.company">
+				<hr>
+			</div>
+			<div class="form-group">
+				<label for="add-album-year">Year</label>
+				<input id="add-album-year" type="text" class="form-control" placeholder="Enter year here" data-ng-model="$ctrl.year">
+				<hr>
+			</div>
+			<div class="form-group">
+				<label for="add-album-price">Price</label>
+				<input id="add-album-price" type="text" class="form-control" placeholder="Enter price here" data-ng-model="$ctrl.price">
+				<hr>
+			</div>
+		</div>
+
+		<div class="col-lg-4 col-md-6">
+			<div class="album-logo-preview">
+				<div class="album-logo-show" data-ng-if="$ctrl.logoUrl != ''" style="background-image: url({{$ctrl.logoUrl}})"></div>
+			</div>
+			<div class="form-group">
+				<label for="add-album-logo">Album logo (URL)</label>
+				<input id="add-album-logo" type="text" class="form-control" placeholder="Enter album logo URL here" data-ng-model="$ctrl.logoUrl">
+				<hr>
+			</div>
+		</div>
+
+</div>

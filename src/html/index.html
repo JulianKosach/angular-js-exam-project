@@ -25,16 +25,18 @@
 	<header>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-7 col-sm-12">
-					<button class="btn navbar-left btn-primary btn-add">Add new album &nbsp; <span class="glyphicon glyphicon-cd"></span></button>
-					<form class="navbar-form navbar-left">
+				<div class="col-lg-4 col-md-12"><h1><span class="glyphicon glyphicon-headphones"></span> Simple Music Library</h1></div>
+				<div class="col-lg-5 col-md-6">
+					<form class="navbar-form navbar-right">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Search">
 						</div>
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>
 					</form>
 				</div>
-				<div class="col-md-5 col-sm-12"><h1>Simple Music Library</h1></div>
+				<div class="col-lg-3 col-md-6">
+					<a href="#!/albums/add" class="btn navbar-right btn-primary btn-add">Add new album &nbsp; <span class="glyphicon glyphicon-cd"></span></a>
+				</div>
 			</div>
 		</div>
 	</header>
@@ -88,6 +90,9 @@
 
     <script src="js/album-detail/album-detail.module.js"></script>
     <script src="js/album-detail/album-detail.component.js"></script>
+
+    <script src="js/album-add/album-add.module.js"></script>
+    <script src="js/album-add/album-add.component.js"></script>
 
 
 </body>

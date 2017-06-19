@@ -6,7 +6,7 @@ angular.
   component('albumsList', {
     templateUrl: 'templates/albums-list.template.html',
     controller: ['Albums',
-      function PhoneListController(Albums) {
+      function AlbumsListController(Albums) {
 
         this.albums = Albums.get();
         // this.orderProp = 'age';
