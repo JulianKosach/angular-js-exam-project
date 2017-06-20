@@ -5,6 +5,7 @@ angular.
   factory('Albums', ['$resource',
     function($resource) {
       return $resource('/albums/all', {}, {
+
         get: {
           method: 'GET',
           isArray: true,
@@ -16,6 +17,11 @@ angular.
             });
             return arr;
           }
+        },
+
+        addNew: {
+          method: 'POST',
+          url: '/albums/add'
         }
         
       });
