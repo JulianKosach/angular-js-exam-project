@@ -9,7 +9,6 @@ angular.
       function AlbumsListController(Albums) {
 
         this.albums = Albums.get();
-        // this.orderProp = 'age';
       }
     ]
   });

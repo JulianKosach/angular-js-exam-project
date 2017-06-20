@@ -44,18 +44,12 @@ footer {
 	-moz-box-shadow: 0px -3px 40px 0px rgba(0,0,0,0.7);
 	box-shadow: 0px -3px 40px 0px rgba(0,0,0,0.7);
 }
-header .btn, header .form-control {
+header .btn {
 	font-size: 18px;
 	height: 38px;
 }
 header .btn-add {
 	margin-top: 25px;
-}
-header .navbar-form {
-	margin-top: 25px;
-}
-header .navbar-form .btn {
-	margin-left: 5px;
 }
 header h1 {
 	font-size: 32px;
@@ -94,6 +88,16 @@ main {
 .albums-container ul {
 	list-style: none;
 	padding: 0;
+}
+
+.albums-container .navbar-form {
+	margin: 0 0 20px;
+}
+
+.albums-container .form-control, .albums-container .navbar-form .btn {
+	font-size: 18px;
+	height: 38px;
+	margin-right: 5px;
 }
 
 .album {
@@ -247,7 +251,7 @@ main {
 }
 
 .album-wrap.add-album:hover .album-cover {
-	height: 230px;
+	height: 210px;
 }
 
 
@@ -335,12 +339,15 @@ footer h3 {
 
 
 
-@media (max-width: 1199px) {
+@media (max-width: 767px) {
 	header {
 	    height: 160px;
 	}
 	main {
 		padding-top: 190px;
+	}
+	.albums-container .navbar-form {
+		padding: 0 35px;
 	}
 }
 

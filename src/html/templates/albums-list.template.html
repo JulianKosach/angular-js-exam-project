@@ -1,7 +1,13 @@
 <section class="albums-container">
 	<ul class="row">
+		<form class="navbar-form" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search" data-ng-model="$ctrl.query">
+			</div>
+			<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>
+		</form>
 					
-		<li data-ng-cloak class="album col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="album in $ctrl.albums">
+		<li data-ng-cloak class="album col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="album in $ctrl.albums | filter:$ctrl.query">
 			<a href="#!/albums/{{album.id}}" class="album-wrap">
 				<div class="album-cover" style="background-image: url({{album.logoUrl}})"></div>
 				<div class="album-info">
