@@ -1,4 +1,4 @@
 'use strict';
 
-// Define the `albumsAdd` module
-angular.module('albumsAdd', ['core.album']);
+// Define the `albumDelete` module
+angular.module('albumDelete', ['core.album']);

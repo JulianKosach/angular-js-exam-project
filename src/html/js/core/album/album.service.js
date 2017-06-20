@@ -19,9 +19,19 @@ angular.
           }
         },
 
-        addNew: {
+        add: {
           method: 'POST',
           url: '/albums/add'
+        },
+
+        update: {
+          method: 'POST',
+          url: '/albums/update/:id'
+        },
+
+        delete: {
+          method: 'DELETE',
+          url: '/albums/delete/:id'
         }
         
       });

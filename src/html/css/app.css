@@ -268,14 +268,18 @@ footer h3 {
 
 
 
-.album-detail, .album-add {
+.album-detail, .album-add, .album-delete {
 	color: #fff;
 	background-color: rgba(0,10,20,0.2);
 	padding: 15px 0;
 	border-radius: 5px;
 }
 
-.album-detail .btn, .album-add .btn {
+ .album-delete {
+	padding: 25px 15px;
+}
+
+.album-detail .btn, .album-add .btn, .album-delete .btn {
 	height: 38px;
 	font-size: 18px;
 	margin: 10px 15px 0 0;

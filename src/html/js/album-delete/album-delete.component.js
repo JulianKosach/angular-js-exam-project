@@ -1,13 +1,26 @@
 'use strict';
 
-// Register `albumsAdd` component, along with its associated controller and template
+// Register `albumDelete` component, along with its associated controller and template
 angular.
   module('SML_app').
-  component('albumAdd', {
-    templateUrl: 'templates/album-add.template.html',
-    controller: ['Albums',
-      function AlbymsAddController(Albums) {
+  component('albumDelete', {
+    templateUrl: 'templates/album-delete.template.html',
+    controller: ['$routeParams', 'Albums',
+      function AlbumDeleteController($routeParams, Albums) {
+        var self = this;
+        Albums.get({}, function(arr) {
+          	self.album = _.find(arr, function(obj){ 
+          		return obj.id == $routeParams.albumId; 
+          	});
+        });
 
+      	this.initDelete = function(){
+      		Albums.delete({id: $routeParams.albumId}, function(resp) {
+	        	location.href = "#!/albums";
+	        }, function(err_resp) {
+	        	console.log('err_resp', err_resp);
+	        });
+      	};
       }
     ]
   });

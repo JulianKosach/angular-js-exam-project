@@ -1,29 +1,33 @@
 'use strict';
 
-// Register `albumsAdd` component, along with its associated controller and template
+// Register `albumAdd` component, along with its associated controller and template
 angular.
   module('SML_app').
   component('albumAdd', {
     templateUrl: 'templates/album-add.template.html',
     controller: ['Albums',
-      function AlbymsAddController(Albums) {
+      function AlbumAddController(Albums) {
+        var self = this;
       	this.pageTitle = 'Add new album';
       	this.isAdd = true;
       	this.isSaveChanges = false;
+        this.hrefBackBtn = '#!/albums';
+        this.textBackBtn = 'Go back to albums list';
+
+        this.album = {};
 
       	this.initAdd = function(){
-      		var data = {
-      			title: this.title || '',
-      			artist: this.artist || '',
-      			country: this.country || '',
-      			company: this.company || '',
-      			year: this.year || '',
-      			price: this.price || '',
-      			logoUrl: this.logoUrl || ''
-      		}
-      		var data_send = JSON.stringify(data);
-      		Albums.addNew({}, data_send, function(resp) {
-	        	location.href = "#!/albums/0"+resp.id;
+      		self.album.title = self.album.title || '';
+      		self.album.artist = self.album.artist || '';
+      		self.album.country = self.album.country || '';
+      		self.album.company = self.album.company || '';
+      		self.album.year = self.album.year || '';
+      		self.album.price = self.album.price || '';
+      		self.album.logoUrl = self.album.logoUrl || '';
+      		var data_send = JSON.stringify(self.album);
+
+      		Albums.add({}, data_send, function(resp) {
+	        	location.href = "#!/albums/"+resp.id;
 	        }, function(err_resp) {
 	        	console.log('err_resp', err_resp.data);
 	        });

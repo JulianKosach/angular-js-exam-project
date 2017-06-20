@@ -6,7 +6,7 @@
 		<hr>
 		<div class="form-group">
 			<label for="add-album-title">Album title</label>
-			<input id="add-album-title" type="text" class="form-control" placeholder="Enter album title here" data-ng-model="$ctrl.title">
+			<input id="add-album-title" type="text" class="form-control" placeholder="Enter album title here" data-ng-model="$ctrl.album.title">
 			<hr>
 		</div>
 	</div>
@@ -14,51 +14,52 @@
 		<div class="col-lg-8 col-md-7 col-sm-6">
 			<div class="form-group">
 				<label for="add-album-artist">Artist</label>
-				<input id="add-album-artist" type="text" class="form-control" placeholder="Enter artist here" data-ng-model="$ctrl.artist">
+				<input id="add-album-artist" type="text" class="form-control" placeholder="Enter artist here" data-ng-model="$ctrl.album.artist">
 				<hr>
 			</div>
 			<div class="form-group">
 				<label for="add-album-country">Country</label>
-				<input id="add-album-country" type="text" class="form-control" placeholder="Enter country here" data-ng-model="$ctrl.country">
+				<input id="add-album-country" type="text" class="form-control" placeholder="Enter country here" data-ng-model="$ctrl.album.country">
 				<hr>
 			</div>
 			<div class="form-group">
 				<label for="add-album-company">Company</label>
-				<input id="add-album-company" type="text" class="form-control" placeholder="Enter company here" data-ng-model="$ctrl.company">
+				<input id="add-album-company" type="text" class="form-control" placeholder="Enter company here" data-ng-model="$ctrl.album.company">
 				<hr>
 			</div>
 			<div class="form-group">
 				<label for="add-album-year">Year</label>
-				<input id="add-album-year" type="text" class="form-control" placeholder="Enter year here" data-ng-model="$ctrl.year">
+				<input id="add-album-year" type="text" class="form-control" placeholder="Enter year here" data-ng-model="$ctrl.album.year">
 				<hr>
 			</div>
 			<div class="form-group">
 				<label for="add-album-price">Price</label>
-				<input id="add-album-price" type="text" class="form-control" placeholder="Enter price here" data-ng-model="$ctrl.price">
+				<input id="add-album-price" type="text" class="form-control" placeholder="Enter price here" data-ng-model="$ctrl.album.price">
 				<hr>
 			</div>
 		</div>
 
 		<div class="col-lg-4 col-md-5 col-sm-6">
 			<div class="album-logo-preview">
-				<div class="album-logo-show" data-ng-if="$ctrl.logoUrl != ''" style="background-image: url({{$ctrl.logoUrl}})"></div>
+				<div class="album-logo-show" data-ng-if="$ctrl.logoUrl != ''" style="background-image: url({{$ctrl.album.logoUrl}})"></div>
 			</div>
 			<div class="form-group">
 				<label for="add-album-logo">Album logo (URL)</label>
-				<input id="add-album-logo" type="text" class="form-control" placeholder="Enter album logo URL here" data-ng-model="$ctrl.logoUrl">
+				<input id="add-album-logo" type="text" class="form-control" placeholder="Enter album logo URL here" data-ng-model="$ctrl.album.logoUrl">
 				<hr>
 			</div>
 		</div>
 	
 		<div class="col-md-12 col-sm-12">
 			<hr>
-			<a href="#!/albums" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Go back to albums list</a>
+			<a href="{{$ctrl.hrefBackBtn}}" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> {{$ctrl.textBackBtn}}</a>
+
 			<button data-ng-if="$ctrl.isAdd" data-ng-click="$ctrl.initAdd()" class="btn btn-primary add-btn">
 				<span class="glyphicon glyphicon-plus"></span> Add album
 			</button>
-			<a href="#!/albums" data-ng-if="$ctrl.isSaveChanges" data-ng-click="$ctrl.initSaveChanges()" class="btn btn-primary add-btn">
+			<button data-ng-if="$ctrl.isSaveChanges" data-ng-click="$ctrl.initSaveChanges()" class="btn btn-primary add-btn">
 				<span class="glyphicon glyphicon-floppy-disk"></span> Save changes
-			</a>
+			</button>
 		</div>
 
 </div>

@@ -1,4 +1,4 @@
 'use strict';
 
-// Define the `albumsAdd` module
-angular.module('albumsAdd', ['core.album']);
+// Define the `albumEdit` module
+angular.module('albumEdit', ['core.album']);

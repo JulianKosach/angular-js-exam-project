@@ -6,5 +6,8 @@ angular.module('SML_app', [
   'ngRoute',
   'core',
   'albumDetail',
-  'albumsList'
+  'albumsList',
+  'albumAdd',
+  'albumEdit',
+  'albumDelete'
 ]);
