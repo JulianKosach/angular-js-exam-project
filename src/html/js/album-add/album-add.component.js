@@ -5,8 +5,8 @@ angular.
   module('SML_app').
   component('albumAdd', {
     templateUrl: 'templates/album-add.template.html',
-    controller: ['$location', 'Albums',
-      function AlbymsAddController($location, Albums) {
+    controller: ['Albums',
+      function AlbymsAddController(Albums) {
       	this.pageTitle = 'Add new album';
       	this.isAdd = true;
       	this.isSaveChanges = false;
@@ -22,8 +22,8 @@ angular.
       			logoUrl: this.logoUrl || ''
       		}
       		var data_send = JSON.stringify(data);
-      		Albums.addNew({}, data_send, function() {
-      			$location.path('#!/albums');
+      		Albums.addNew({}, data_send, function(resp) {
+	        	location.href = "#!/albums/0"+resp.id;
 	        }, function(err_resp) {
 	        	console.log('err_resp', err_resp.data);
 	        });
