@@ -8,7 +8,7 @@ angular.
     controller: ['Albums',
       function AlbumAddController(Albums) {
         var self = this;
-      	this.pageTitle = 'Add new album';
+      	this.pageTitle = 'Add new album ';
       	this.isAdd = true;
       	this.isSaveChanges = false;
         this.hrefBackBtn = '#!/albums';
@@ -17,14 +17,17 @@ angular.
         this.album = {};
 
       	this.initAdd = function(){
-      		self.album.title = self.album.title || '';
-      		self.album.artist = self.album.artist || '';
-      		self.album.country = self.album.country || '';
-      		self.album.company = self.album.company || '';
-      		self.album.year = self.album.year || '';
-      		self.album.price = self.album.price || '';
-      		self.album.logoUrl = self.album.logoUrl || '';
-      		var data_send = JSON.stringify(self.album);
+          var data = {
+            title: self.album.title || '',
+            artist: self.album.artist || '',
+            country: self.album.country || '',
+            company: self.album.company || '',
+            year: self.album.year || '',
+            price: self.album.price || '',
+            logoUrl: self.album.logoUrl || ''
+          };
+          data.price = data.price.toString();
+          var data_send = JSON.stringify(data);
 
       		Albums.add({}, data_send, function(resp) {
 	        	location.href = "#!/albums/"+resp.id;

@@ -9,7 +9,7 @@ angular.
       function AlbumEditController($routeParams, Albums) {
 
         var self = this;
-        this.pageTitle = 'Edit album';
+        this.pageTitle = 'Edit album ';
       	this.isAdd = false;
       	this.isSaveChanges = true;
         this.hrefBackBtn = '#!/albums/' + $routeParams.albumId;
@@ -18,21 +18,22 @@ angular.
         self.album = {};
         Albums.get({}, function(arr) {
           	self.album = _.find(arr, function(obj){ 
-          		return obj.id == $routeParams.albumId; 
+          		return obj.id == $routeParams.albumId;
           	});
-      		self.pageTitle = 'Edit album "'+ self.album.title + '"';
         });
-
+        
       	this.initSaveChanges = function(){
-      		self.album.title = self.album.title || '';
-      		self.album.artist = self.album.artist || '';
-      		self.album.country = self.album.country || '';
-      		self.album.company = self.album.company || '';
-      		self.album.year = self.album.year || '';
-      		self.album.price = self.album.price || '';
-      		self.album.price = self.album.price.toString();
-      		self.album.logoUrl = self.album.logoUrl || '';
-      		var data_send = JSON.stringify(self.album);
+          var data = {
+            title: self.album.title || '',
+            artist: self.album.artist || '',
+            country: self.album.country || '',
+            company: self.album.company || '',
+            year: self.album.year || '',
+            price: self.album.price || '',
+            logoUrl: self.album.logoUrl || ''
+          };
+          data.price = data.price.toString();
+      		var data_send = JSON.stringify(data);
 
       		Albums.update({id: $routeParams.albumId}, data_send, function(resp) {
 	        	location.href = "#!/albums/"+resp.id;
