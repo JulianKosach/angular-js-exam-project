@@ -7,7 +7,7 @@ angular.
     templateUrl: 'templates/albums-list.template.html',
     controller: ['Albums',
       function AlbumsListController(Albums) {
-
+      	
         this.albums = Albums.get();
       }
     ]

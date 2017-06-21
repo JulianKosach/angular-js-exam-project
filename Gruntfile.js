@@ -16,6 +16,8 @@ module.exports = function(grunt) {
 			unit: {
 				options: {
 					files: [
+
+						// resource
 						'src/html/libs/underscore-min.js',
 
 						'src/html/libs/angular.min.js',
@@ -46,7 +48,10 @@ module.exports = function(grunt) {
 						'src/html/js/album-delete/album-delete.module.js',
 						'src/html/js/album-delete/album-delete.component.js',
 
-						'src/tests/album.service.spec.js'
+						// tests
+						'src/tests/album.service.spec.js',
+						'src/tests/albums-list.service.spec.js',
+						'src/tests/album-detail.service.spec.js'
 					],
 					frameworks: ['jasmine'],
 					plugins: ['karma-jasmine', 'karma-phantomjs-launcher'],

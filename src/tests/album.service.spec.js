@@ -3,6 +3,7 @@
 describe('Album', function() {
   var $httpBackend;
   var Albums;
+
   var albumsGetDataSended = {
     "0": {
       "title": "Empire Burlesque",
@@ -32,6 +33,8 @@ describe('Album', function() {
       "id": 2
     }
   };
+  var albumsGetDataSendedStr = JSON.stringify(albumsGetDataSended);
+  
   var albumsGetDataExpected = [
     {
       "title": "Empire Burlesque",
@@ -61,7 +64,6 @@ describe('Album', function() {
       "id": 2
     }
   ];
-  var albumsDataStr = JSON.stringify(albumsGetDataSended);
 
   // Add a custom equality tester before each test
   beforeEach(function() {
@@ -74,7 +76,7 @@ describe('Album', function() {
   // Instantiate the service and "train" `$httpBackend` before each test
   beforeEach(inject(function(_$httpBackend_, _Albums_) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('/albums/all').respond(albumsDataStr);
+    $httpBackend.expectGET('/albums/all').respond(albumsGetDataSendedStr);
 
     Albums = _Albums_;
   }));
@@ -86,13 +88,15 @@ describe('Album', function() {
   });
 
   it('should fetch the albums data from REST url `/albums/all`', function() {
-    console.log('Start unit test: Album.service.spec');
+    console.log('Start unit test: album.service.spec');
 
     var albums = Albums.get();
     expect(albums).toEqual([]);
 
     $httpBackend.flush();
     expect(albums).toEqual(albumsGetDataExpected);
+
+    console.log('Success \n --------------------------------------');
   });
 
 });

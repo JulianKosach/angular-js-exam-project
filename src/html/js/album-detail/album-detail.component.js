@@ -8,6 +8,7 @@ angular.
     controller: ['$routeParams', 'Albums',
       function AlbumDetailController($routeParams, Albums) {
         var self = this;
+        self.album = {};
         Albums.get({}, function(arr) {
           self.album = _.find(arr, function(obj){ return obj.id == $routeParams.albumId; });
         });
