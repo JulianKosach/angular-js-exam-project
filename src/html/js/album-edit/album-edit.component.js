@@ -17,9 +17,8 @@ angular.
 
         self.album = {};
         Albums.get({}, function(arr) {
-          	self.album = _.find(arr, function(obj){ 
-          		return obj.id == $routeParams.albumId;
-          	});
+            console.log('$routeParams.albumId', $routeParams.albumId);
+          	self.album = _.find(arr, function(obj){ return obj.id == $routeParams.albumId; });
         });
         
       	this.initSaveChanges = function(){

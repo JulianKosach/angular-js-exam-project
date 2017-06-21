@@ -59,6 +59,12 @@ describe('albumDetail', function() {
       ctrl = $componentController('albumDetail');
     }));
 
+    // Verify that there are no outstanding expectations or requests after each test
+    afterEach(function () {
+      $httpBackend.verifyNoOutstandingExpectation();
+      $httpBackend.verifyNoOutstandingRequest();
+    });
+
     it('should fetch the album details', function() {
       console.log('Start unit test: albums-detail.service.spec');
 
