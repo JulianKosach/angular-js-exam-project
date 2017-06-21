@@ -375,8 +375,3 @@ footer h3 {
 		padding: 0 35px;
 	}
 }
-
-
-[ng:\cloak], [ng-cloak], [data-ng-cloak], .ng-cloak {
-	display: none;
-}

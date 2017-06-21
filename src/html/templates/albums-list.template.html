@@ -7,7 +7,7 @@
 			<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>
 		</form>
 					
-		<li data-ng-cloak class="album col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="album in $ctrl.albums | filter:$ctrl.query">
+		<li class="album col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="album in $ctrl.albums | filter:$ctrl.query">
 			<a href="#!/albums/{{album.id}}" class="album-wrap">
 				<div class="album-cover" style="background-image: url({{album.logoUrl}})"></div>
 				<div class="album-info">

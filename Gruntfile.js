@@ -16,14 +16,44 @@ module.exports = function(grunt) {
 			unit: {
 				options: {
 					files: [
-						'src/tests/*.js',
+						'src/html/libs/underscore-min.js',
+
+						'src/html/libs/angular.min.js',
+						'src/html/libs/angular-animate.min.js',
+						'src/html/libs/angular-resource.min.js',
+						'src/html/libs/angular-route.min.js',
+						'src/html/libs/angular-mocks.js',
+
+						'src/html/js/app.module.js',
+						'src/html/js/app.config.js',
+
+						'src/html/js/core/core.module.js',
+						'src/html/js/core/album/album.module.js',
+						'src/html/js/core/album/album.service.js',
+
+						'src/html/js/albums-list/albums-list.module.js',
+						'src/html/js/albums-list/albums-list.component.js',
+
+						'src/html/js/album-detail/album-detail.module.js',
+						'src/html/js/album-detail/album-detail.component.js',
+						
+						'src/html/js/album-add/album-add.module.js',
+						'src/html/js/album-add/album-add.component.js',
+						
+						'src/html/js/album-edit/album-edit.module.js',
+						'src/html/js/album-edit/album-edit.component.js',
+						
+						'src/html/js/album-delete/album-delete.module.js',
+						'src/html/js/album-delete/album-delete.component.js',
+
+						'src/tests/album.service.spec.js'
 					],
 					frameworks: ['jasmine'],
 					plugins: ['karma-jasmine', 'karma-phantomjs-launcher'],
 					browsers: ['PhantomJS'],
 					port: 9999,
 					singleRun: true,
-					logLevel: 'ERROR',
+					logLevel: 'ERROR'
 				},
 			}
 		}
