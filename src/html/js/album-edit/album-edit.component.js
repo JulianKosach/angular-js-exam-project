@@ -13,7 +13,7 @@ angular.
       	this.isAdd = false;
       	this.isSaveChanges = true;
         this.hrefBackBtn = '#!/albums/' + $routeParams.albumId;
-        this.textBackBtn = 'Go back to album details';
+        this.textBackBtn = 'Go back to the album details';
 
         self.album = {};
         Albums.get({}, function(arr) {

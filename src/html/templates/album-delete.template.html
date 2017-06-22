@@ -3,6 +3,6 @@
 
 	<h3>Are You really want to delete album "{{$ctrl.album.title}}"?</h3>
 	<hr>
-	<a href="#!/albums" class="btn btn-default">Cancel</a>
+	<a href="#!/albums/{{$ctrl.album.id}}" class="btn btn-default">Cancel</a>
 	<button data-ng-click="$ctrl.initDelete()" class="btn btn-primary">Delete album &nbsp; <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
 </div>
